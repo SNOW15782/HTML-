@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+    <title>HTML Forms</title>
+  </head>
+  <body>
+    <section id="overlay">
+      <img src="https://content.codecademy.com/courses/web-101/unit-6/htmlcss1-img_burger-logo.svg" alt="Davie's Burgers Logo" id="logo">
+      <hr>
+      <!--Form-->
+      <form action="/practice.html" method="POST"> 
+        <h1>Login to start creating a burger!</h1>  
+        <!--Label-->
+        <label for ="username">Username</label>
+        <!--input-->
+              <input type = "text" name="username"id ="username"> 
+              <br>
+               <!--Password Label-->
+              <label for="user-pw">Password:</label>
+        <!--Password Input-->
+        <input id="user-pw"type = "password" name="user-pw">
+        <!--Patties Label-->
+        <br>
+        <br>
+        <label for = "amount">How many patties would you like?</label>
+        <!--Patties Input-->
+        <input type="id" type = "number" step = "1" name = "amount">
+        <br>
+        <!--Patties Cook-->
+        <label for="doneness">How do you want your patty cooked</label>
+          <br>
+          <span>Rare</span>
+		       <!--Range Input-->
+            <input id = "doneness" name = "doneness" type = "range" min = "0" max = "5" step = "0.5">
+          <span>Well-Done</span>
+      <!--Remember to close the form-->
+      
+      <!--Section-->
+      <section class = "topping">
+        <!--Title-->
+        <span>What Toppings would you like?</span>
+        <br>
+        <!--Input for Lettuce and Label for lettuce -->
+        <input id="lettuce" name = "topping" type="checkbox"value = "lettuce">
+        <label for="lettuce">Lettuce</label>
+
+        <!--Input for tomato and Label for tomato -->
+        <input id="tomato" name = "topping" type="checkbox"value = "tomato">
+        <label for="tomato">Tomato</label>
+
+        <!--Input for onion and Label for onion -->
+        <input id="onion" name = "topping" type="checkbox"value = "onion">
+        <label for="onion">Onion</label>
+    
+    </form>
+    </section>
+  </body>
+</html>
