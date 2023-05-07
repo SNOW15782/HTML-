@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+</head>
+<body>
+    <h4>Best Sellers</h4>
+    <p>Search Report based on the following criterias</p>
+    <hr>
+
+    <form action="signup.php" method="post">
+    <section class="start date">
+        <p> 
+            <label for="start date">Start Date: </label>
+            <input type="date" name="start date" id="start date" min = 2017-10-12 max="2017-12-12">
+        </p>
+    </section>
+
+    <section class = "End date">
+        <p>
+            <label for="end date">End Date: </label>
+            <input type="date" name="end date" id="end date" min = 2017-10-12 max="2017-12-12">
+        </p>
+    </section>
+
+    <section class = "order status">
+    <p>
+        <label for="order status">Order Status: </label>
+        <select name="order Status" id="order status">
+            <option> All</option>
+            <option> Pending</option>
+            <option> Processing</option>
+            <option> Complete</option>
+            <option> Cancelled </option>
+        </select>
+    </p>
+    </section>
+    
+    <section class = "payment status">
+        <p>
+        <label for="payment status">Payment Status: </label>
+        <select required size ="3">
+            <option> Pending</option>
+            <option> Authorised</option>
+            <option> Paid</option>
+            <option> Pertially Refunded</option>
+            <option> Refunded</option>
+            <option> Voided</option>
+        </select>
+    </section>
+
+    <p>
+        <input type="submit" name="run" id="run" value="RUN REPORT">
+    </p>
+    </form>
+</p>
+</body>
+</html>
