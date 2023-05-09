@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>LAB</title></head>
+<style>
+	*{
+		padding: 10px;
+		text-align: center;
+	}
+	#main-container{
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-gap: 10px;
+		border: 1px solid red;
+	}
+
+	#box{
+		border: 2px solid red;
+		border-radius: 5px;
+	}
+</style>
+<body>
+
+<div id="main-container">
+	<div id="box">Box 1</div>
+	<div id="box">Box 2</div>
+	<div id="box">Box 3</div>
+	<div style="border: 2px dotted blue; grid-column-start: 1; grid-column-end: 4;">Box 4</div>
+</div>
+
+</body>
+</html>
