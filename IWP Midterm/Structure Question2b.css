@@ -1,0 +1,33 @@
+
+/*I Part*/
+h3.title{
+
+    text-decoration: underline;
+    font-style: italic;
+}
+
+/*III Part*/
+
+button.reset{
+    transition: all 0.3s ease-in-out;
+}
+
+/*III Part*/
+
+button.reset:hover{
+    opacity: 0.5;
+    box-shadow : 0 0 15px;
+}
+
+/*IV Part*/
+#searchBox{
+
+    border: 1px solid black;
+    padding: 20px;
+}
+
+/*IV Part*/
+#searchBox img{
+    vertical-align: middle;
+    margin-right: 20px;
+}
