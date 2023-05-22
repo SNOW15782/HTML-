@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate Area of Trapezoid</title>
+</head>
+<body>
+    <h1>Calculate Area of Trapezoid</h1>
+    <p id ="result"></p>
+
+    <script>
+        //define variable
+        let base1 = prompt("Please enter the value of base 1:");
+        let base2= prompt("Enter the value of base 2: ");
+        let height= prompt ("Please enter the value of height: ");
+
+        //convert the input values from strings to number 
+        base1 = Number(base1);
+        base2 = Number(base2);
+        height = Number(height);
+        
+        //calculate area
+        let area = ((base1 + base2)/2)*height;
+
+        document.getElementById("result").innerHTML = "The are of the trapezoid is + " + area.toFixed(2)+"cm<sup>2</sup16>";
+    </script>
+</body>
+</html>

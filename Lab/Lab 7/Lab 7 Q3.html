@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Attendance</title>
+</head>
+<body>
+    <h1>Course Attendance</h1>
+    <p id="result"></p>
+    <script>
+        let courseCode, courseName, courseCost, discount, freeGift, totalPayment;
+
+        while (true) {
+            courseCode = prompt("COURSES OFFERED:\nA. Windows Azure (RM 1250.00 per pax)\nB. JQuery for Beginners (RM 990.00 per pax)\nC. Advanced PHP and MySQL (RM 2150.00 per pax)\n\nEnter the COURSE CODE:");
+
+            if (courseCode === "A" || courseCode === "B" || courseCode === "C") {
+                break;
+            } else {
+                alert("You have entered an INVALID course code. Please try again.");
+            }
+        }
+
+        let numParticipants = parseInt(prompt("Enter the number of participants:"));
+
+        switch (courseCode) {
+            case "A":
+                courseName = "Windows Azure";
+                courseCost = 1250.00;
+                break;
+
+            case "B":
+                courseName = "JQuery for Beginners";
+                courseCost = 990.00;
+                break;
+
+            case "C":
+                courseName = "Advanced PHP and MySQL";
+                courseCost = 2150.00;
+                break;
+        }
+
+        if (numParticipants <= 10) {
+            discount = 0;
+            freeGift = "None";
+        } else if (numParticipants >= 11 && numParticipants <= 20) {
+            discount = 10;
+            freeGift = "Coffee Mug";
+        } else {
+            discount = 15;
+            freeGift = "Kingston 16GB Thumbdrive";
+        }
+
+        let discountAmount = (courseCost * discount) / 100;
+        totalPayment = (courseCost * numParticipants) - discountAmount;
+
+        // Display the output
+        document.getElementById("result").innerHTML = "<strong>Course name:</strong> " + courseName + "<br>";
+        document.getElementById("result").innerHTML += "<strong>Course price:</strong> RM " + courseCost.toFixed(2) + "<br>";
+        document.getElementById("result").innerHTML += "<strong>Participants:</strong> " + numParticipants + "<br>";
+        document.getElementById("result").innerHTML += "<strong>Discount:</strong> RM " + discountAmount.toFixed(2) + " (" + discount + "%)" + "<br>";
+        document.getElementById("result").innerHTML += "<strong>Gift:</strong> " + freeGift + "<br>";
+        document.getElementById("result").innerHTML += "<strong>Total payment:</strong> RM " + totalPayment.toFixed(2) + "<br>";
+    </script>
+</body>
+</html>

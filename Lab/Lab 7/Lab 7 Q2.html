@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe MMU Bill Calculator</title>
+</head>
+<body>
+    <h1>Cafe MMU Bill Calculator</h1>
+    <p id = "result"></p>
+
+    <script>
+    let choice = prompt("Please enter your choice \n1. Nescafe \n2. Pizza \n3. Yogurt");
+
+    let pricePerItem = 0;
+    let itemDesc = ""; 
+    let totalPrice = 0; 
+
+    //check validity when input choice 
+
+    if (choice === "1"){
+        pricePerItem = 2.30;
+        itemDesc= "can(s)";
+    }
+
+    else if (choice==="2"){
+        pricePerItem = 7.90;
+        itemDesc = "piece(s)"; 
+
+    }
+
+    else if (choice === "3"){
+        pricePerItem = 1.85;
+        itemDesc = "cup(s)";
+    }
+
+    else{
+        alert("Invalid Choice. Program will terminate. ");
+        throw new Error ("Invalid Choice.");
+    }
+
+    //ask user for the quantity 
+    let quantity = prompt("Please enter the quantity of" + itemDesc + "you want to purchase: ");
+
+    totalPrice = pricePerItem * quantity;
+
+    //display the bill 
+
+    document.getElementById("result").innerHTML = "Your total bill for "+ quantity + " "+ itemDesc + " is RM " + totalPrice.toFixed(2);
+    </script>
+</body>
+</html>

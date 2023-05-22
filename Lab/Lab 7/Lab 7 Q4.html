@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Centre</title>
+</head>
+<body>
+    <h1>Recycling Centre</h1>
+    <button onclick="startProgram()">Start Program</button>
+    <button onclick="stopProgram()">Stop Program</button>
+    <div id="output"></div>
+
+    <script>
+        let customerCount = 0;
+        let overallPayout = 0;
+        let continueProgram = false;
+
+        function startProgram() {
+            continueProgram = true;
+            customerCount = 0;
+            overallPayout = 0;
+            document.getElementById("output").innerHTML = "";
+            runProgram();
+        }
+
+        function stopProgram() {
+            continueProgram = false;
+            displayOverallSummary();
+        }
+
+        function runProgram() {
+            while (continueProgram) {
+                customerCount++;
+                let weightInput = prompt("Enter the weight of the recycling material for customer " + customerCount + ":");
+                let weight = parseFloat(weightInput);
+
+                if (isNaN(weight)) {
+                    alert("Invalid weight input. Program will be terminated...");
+                    throw new Error("Invalid weight input");
+                }
+
+                let rate;
+
+                if (weight <= 10) {
+                    rate = 0.15;
+                } else if (weight > 10 && weight <= 20) {
+                    rate = 0.20;
+                } else if (weight > 20 && weight <= 30) {
+                    rate = 0.25;
+                } else {
+                    rate = 0.30;
+                }
+
+                let payout = rate * weight;
+                overallPayout += payout;
+
+                displayCustomerInfo(customerCount, weight, rate, payout);
+
+                let confirmContinue = confirm("Do you want to continue?");
+                if (!confirmContinue) {
+                    stopProgram();
+                }
+            }
+        }
+
+        function displayCustomerInfo(customerNumber, weight, rate, payout) {
+            let output = document.getElementById("output");
+            let customerInfo = document.createElement("p");
+            customerInfo.innerHTML = "Customer: " + customerNumber + "<br>" +
+                "Weight: " + weight + "kg" + "<br>" +
+                "Rate: RM " + rate.toFixed(2) + "<br>" +
+                "Payout: RM " + payout.toFixed(2) + "<br>";
+            output.appendChild(customerInfo);
+        }
+
+        function displayOverallSummary() {
+            let output = document.getElementById("output");
+            let summary = document.createElement("p");
+            summary.innerHTML = "Total Customers: " + customerCount + "<br>" +
+                "Overall Payout: RM " + overallPayout.toFixed(2);
+            output.appendChild(summary);
+        }
+    </script>
+</body>
+</html>
