@@ -1,0 +1,78 @@
+<html>
+<head>
+  <title>Flower Rose Lily Tulip</title>
+  <script type="text/javascript">
+    // Function to get the flower price
+    function get_flower_price(flower) {
+      switch (flower) {
+        case "Rose":
+          return 2.30;
+        case "Lily":
+          return 3.30;
+        case "Tulip":
+          return 1.30;
+        default:
+          return 0; // If flower is not recognized, return 0 price
+      }
+    }
+
+    // Function to get the decoration price
+    function get_deco_price(decoration) {
+      if (decoration === "Basket") {
+        return 10.00;
+      } else if (decoration === "Bouquet") {
+        return 20.00;
+      } else {
+        return 0; // If decoration is not recognized, return 0 price
+      }
+    }
+
+    // Function to handle button click event and display the bill
+    function get_data() {
+      // Get form inputs
+      var flower = document.querySelector('input[name="flower"]:checked').value;
+      var quantity = parseInt(document.getElementsByName("qty")[0].value);
+      var decoration = document.getElementsByName("deco")[0].value;
+
+      // Get flower price
+      var flowerPrice = get_flower_price(flower);
+
+      // Get decoration price
+      var decorationPrice = get_deco_price(decoration);
+
+      // Calculate total price
+      var totalPrice = (flowerPrice * quantity) + decorationPrice;
+
+      // Display bill information on the browser
+      document.getElementById("bill").innerHTML = "Flower: " + flower +
+        "<br>Quantity: " + quantity +
+        "<br>Decoration: " + decoration +
+        "<br>Flower Price: RM " + flowerPrice.toFixed(2) +
+        "<br>Decoration Price: RM " + decorationPrice.toFixed(2) +
+        "<br>Total Price: RM " + totalPrice.toFixed(2);
+    }
+  </script>
+</head>
+<body>
+  <form name="frm">
+    <p>Flower
+      <input type="radio" name="flower" value="Rose">Rose
+      <input type="radio" name="flower" value="Lily">Lily
+      <input type="radio" name="flower" value="Tulip">Tulip
+    </p>
+
+    <p>Decoration
+      <select name="deco">
+        <option value="Basket">Basket</option>
+        <option value="Bouquet">Bouquet</option>
+      </select>
+    </p>
+
+    <p>Stalks: <input type="number" name="qty" min="1" max="100"></p>
+
+    <p><input type="button" name="btn" value="KIRA" onclick="get_data()"></p>
+  </form>
+
+  <div id="bill"></div>
+</body>
+</html>

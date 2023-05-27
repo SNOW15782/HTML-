@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+function order_data()
+{
+	var cust_name = document.orderfrm.nametxt.value;
+      var mug_color = document.querySelector('input[name="mug_colour"]:checked').value;
+      var quantity = parseInt(document.orderfrm.qtytxt.value);
+      var mug_delivery = document.orderfrm.mug_delivery.checked;
+
+      var mug_price = get_price(mug_color);
+      var mug_deli_rate = mug_delivery ? 7.0 : 0.0;
+      var total = (mug_price * quantity) + mug_deli_rate;
+
+      print_bill(cust_name, mug_price, quantity, mug_delivery, mug_deli_rate, total);
+
+
+}
+
+function get_price(mug_color)
+{
+	var price; 
+	switch(mug_color)
+	{
+		case "Royal Blue":
+			price = 3.50;
+			break; 
+
+		case "Red and Orange":
+			price = 5.90;
+			break;
+
+		case "Gold":
+			price = 7.50;
+			break;
+
+		default:
+			price = 0.00; 
+	}
+
+	return price;
+}
+
+function print_bill(cust_name,mug_price,quantity,mug_delivery,mug_deli_rate,total)
+{
+	document.write("<h2>Customer Name: " + cust_name + "</h2>");
+	document.write("<p>Mug Price: RM " + mug_price + "<p>");
+	document.write("<p>Quantity: " + quantity + "<p>");
+	document.write("<p>Delivery: "+mug_delivery ? "Required" : "Not Required" + "<p>");
+	document.write("Total: " + total.toFixed(2) + "<p>");
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Custom Mug</h3>
+<p>Make a custom order today!</p>
+
+<form name="orderfrm">
+
+	<p>Name : <input type="text" name="nametxt" >
+
+	<p>Colour
+	<input type="radio" name="mug_colour" value="1">Royal Blue (RM 3.50)
+	<input type="radio" name="mug_colour" value="2">Red and Orange (RM 5.90)
+	<input type="radio" name="mug_colour" value="3">Gold (RM 7.50)
+
+	<p>Quantity : <input type="text" name="qtytxt" >	
+	
+	<p>Delivery : <input type="checkbox" name="mug_delivery" value="Yes">Check if delivery is required
+
+	<p><input type="button" name="sendbtn" value="Send Order" onclick="order_data();" />
+
+</form>
+
+
+</body>
+
+</html>

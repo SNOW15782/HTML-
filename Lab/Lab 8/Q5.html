@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Lab 8</title>
+
+<script type="text/javascript">
+function timetable() {
+var num1 = parseInt(document.forms["multiplicationfrm"]["num1"].value);
+var num2 = parseInt(document.forms["multiplicationfrm"]["num2"].value);
+
+var result = num1 *  num2;
+
+ alert("The result of "+ num1 + " * "+ num2 + "is: "+ result);
+ 
+}
+</script>
+
+</head>
+
+<body>
+
+<h3>Multiplication Table</h3>
+<p>Choose your numbers</p>
+
+<form name="multiplicationfrm">
+
+	<p> <input type="range" min="1" max="12" value="1" name="num1"></p>
+	<p> <input type="range" min="1" max="12" value="1" name="num2"></p>
+
+	<p><input type="button" name="calcbtn" value="Get Answer" onclick="timetable();" />
+
+</form>
+
+
+</body>
+
+</html>

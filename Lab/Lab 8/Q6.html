@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 8</title>
+  <script type="text/javascript">
+    function input() {
+      var movieCode = document.ticketfrm.mov_code.value;
+      var adultQty = parseInt(document.ticketfrm.adult_qty.value);
+      var childQty = parseInt(document.ticketfrm.child_qty.value);
+
+      var movieName;
+      var ticketPrice;
+
+      switch (movieCode) {
+        case "M1":
+          movieName = "Jumanji";
+          ticketPrice = 12.90;
+          break;
+        case "M2":
+          movieName = "Coco";
+          ticketPrice = 10.50;
+          break;
+        case "M3":
+          movieName = "Blade Runner";
+          ticketPrice = 9.30;
+          break;
+        case "M4":
+          movieName = "The Foreigner";
+          ticketPrice = 12.80;
+          break;
+        default:
+          movieName = "";
+          ticketPrice = 0.0;
+          break;
+      }
+
+      var addOns = [];
+      var addOnCodes = document.getElementsByName("add_on_code");
+      for (var i = 0; i < addOnCodes.length; i++) {
+        if (addOnCodes[i].checked) {
+          addOns.push(addOnCodes[i].value);
+        }
+      }
+
+      var addOnNames = [];
+      var addOnPrices = [];
+      var totalAddOnPrice = 0.0;
+
+      for (var j = 0; j < addOns.length; j++) {
+        if (addOns[j] === "A1") {
+          addOnNames.push("Popcorn");
+          addOnPrices.push(7.90);
+          totalAddOnPrice += 7.90;
+        } else if (addOns[j] === "A2") {
+          addOnNames.push("Nachos");
+          addOnPrices.push(5.50);
+          totalAddOnPrice += 5.50;
+        } else if (addOns[j] === "A3") {
+          addOnNames.push("Soda");
+          addOnPrices.push(3.50);
+          totalAddOnPrice += 3.50;
+        }
+      }
+
+      var totalPayment = (adultQty * ticketPrice) + (childQty * ticketPrice) + totalAddOnPrice;
+
+      displayInformation(movieName, adultQty, childQty, addOnNames, addOnPrices, totalPayment);
+    }
+
+    function displayInformation(movieName, adultQty, childQty, addOnNames, addOnPrices, totalPayment) {
+      document.write("<h3>Ticket and Add-On Purchase</h3>");
+      document.write("<p>Movie: " + movieName + "</p>");
+      document.write("<p>Adult Total: " + adultQty + "</p>");
+      document.write("<p>Child Total: " + childQty + "</p>");
+
+      if (addOnNames.length > 0) {
+        document.write("<p>Add-Ons:</p>");
+        document.write("<ul>");
+        for (var i = 0; i < addOnNames.length; i++) {
+          document.write("<li>" + addOnNames[i] + " - RM " + addOnPrices[i].toFixed(2) + "</li>");
+        }
+        document.write("</ul>");
+      }
+
+      document.write("<p>Total Payment: RM " + totalPayment.toFixed(2) + "</p>");
+    }
+  </script>
+</head>
+
+<body>
+  <h3>Book A Movie Ticket</h3>
+  <p>Choose your movie and add-on</p>
+
+  <form name="ticketfrm">
+    <p>Movie Title:
+      <select name="mov_code">
+        <option value="M1">Jumanji (RM 12.90)</option>
+        <option value="M2">Coco (RM 10.50)</option>
+        <option value="M3">Blade Runner (RM 9.30)</option>
+        <option value="M4">The Foreigner (RM 12.80)</option>
+      </select>
+    </p>
+    <p>Adult: <input type="number" name="adult_qty" min="1" max="10" /></p>
+    <p>Child: <input type="number" name="child_qty" min="0" max="10" /></p>
+    <p>Add-Ons:
+      <input type="checkbox" name="add_on_code" value="A1">Popcorn (RM 7.90)
+      <input type="checkbox" name="add_on_code" value="A2">Nachos (RM 5.50)
+      <input type="checkbox" name="add_on_code" value="A3">Soda (RM 3.50)
+    </p>
+    <p><input type="button" name="buybtn" value="Buy Now" onclick="input();" /></p>
+  </form>
+</body>
+</html>
