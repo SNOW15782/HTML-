@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>JS FORMS</title>
+ 
+<script type="text/javascript">
+
+function check()
+{
+	var qty = document.orderfrm.qty.value; 
+	var product_code=document.orderfrm.product_code.value;
+
+	//check if quantity and product code are filled 
+	if (qty === '' || product_code === '0'){
+		document.getElementById('bill').innerHTML = 'Please fill in all the fields';
+	}
+	else{
+		var product_name, product_price;
+
+		//determine the product name and price based on the selected product code
+
+		switch(product_code){
+			case '1':
+				productName = 'Pen'
+				productPrice = 1.5; 
+				break;
+
+			case '2':
+				productName = 'Eraser';
+				productPrice = 0.75;
+				break;
+
+			case '3':
+				productName = 'Ruler'
+				productPrice = 0.0;
+		}
+		//if a valid product code is selected, calculate the bill 
+		if (productName !== ''){
+			get_bill (qty, productName, productPrice);
+		}
+		else{
+			document.getElementById('bill').innerHTML = 'invalid product code.';
+		}
+	}
+	
+}
+
+function get_bill(qty, product_name, product_price)
+{
+ var totalBill = qty* product_price; 
+ 
+ //Display the calculated bill 
+
+ document.getElementById('bill').innerHTML = 'Product: ' + product_name + '<br>' + 'Quantity: ' + qty + '<br>' + 'Price: MYR' + product_price.toFixed(2) + '<br>' + 'Total Bill: MYR' + totalBill.toFixed(2); 
+}
+
+
+
+</script> 
+
+
+
+</head>
+
+<body>
+
+<form name = "orderfrm" >
+
+	<p>Quantity : 	<input type="text" name="qty" size="10" />
+	<br><span id="qty-display">&nbsp;</span>
+	</p>	
+	
+	<p>Operation : 	<select name="product_code" >
+						<option value="0">Choose an item</option>
+						<option value="1">Pen</option>
+						<option value="2">Eraser</option>
+						<option value="3">Ruler</option>
+					</select>
+		<br><span id="price-display">&nbsp;</span>
+	</p>
+
+	<p><input type="button" value="Get Bill" name="calcbtn" onclick = "check()" /></p>
+	
+</form>
+
+<p id="bill">&nbsp;</p>
+
+</body>
+
+</html>

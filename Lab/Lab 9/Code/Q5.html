@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>JavaScript</title>
+
+<style type="text/css">
+span {
+  color: red;
+}
+</style>
+
+<script type="text/javascript">
+
+function validate() {
+  var studId = document.forms["detailsfrm"]["stud_id"].value;
+  var studCgpa = document.forms["detailsfrm"]["stud_cgpa"].value;
+  var programme = document.forms["detailsfrm"]["programme"].value;
+  var errorMessages = [];
+  
+  // Validate student id
+  if (studId === "" || studId.length !== 10) {
+    errorMessages.push("Student ID must be 10 digits");
+    document.getElementById("error_id").innerHTML = "Student ID must be 10 digits";
+  } else {
+    document.getElementById("error_id").innerHTML = "";
+  }
+  
+  // Validate student cgpa
+  if (studCgpa === "" || isNaN(studCgpa)) {
+    errorMessages.push("CGPA must be a numeric value");
+    document.getElementById("error_cgpa").innerHTML = "CGPA must be a numeric value";
+  } else {
+    document.getElementById("error_cgpa").innerHTML = "";
+  }
+  
+  // Validate programme
+  if (!programme) {
+    errorMessages.push("Please choose a programme");
+    document.getElementById("error_prog").innerHTML = "Please choose a programme";
+  } else {
+    document.getElementById("error_prog").innerHTML = "";
+  }
+  
+  if (errorMessages.length === 0) {
+    display(studId, studCgpa, programme);
+  } else {
+    alert("The form has errors:\n" + errorMessages.join("\n"));
+  }
+}
+
+function display(studId, studCgpa, programme) {
+  document.getElementById("display_stud_id").innerHTML = studId;
+  document.getElementById("display_cgpa").innerHTML = studCgpa;
+  document.getElementById("display_prog").innerHTML = programme;
+}
+
+</script>
+
+</head>
+
+<body>
+
+<form name="detailsfrm">
+
+  <p>Students ID : <input type="text" name="stud_id" maxlength="10" /> <span id="error_id"></span></p>
+  <p>CGPA          : <input type="number" name="stud_cgpa" maxlength="4" /> <span id="error_cgpa"></span></p>
+  <p>Programme : <input type="radio" name="programme" value="DIT" />Information Technology
+    <input type="radio" name="programme" value="DIA" />Accounting
+    <input type="radio" name="programme" value="DET" />Engineering
+    <span id="error_prog"></span></p>
+  <p><input type="button" name="displaybtn" value="Display Details" onclick="validate();" /></p>
+
+</form>
+
+<p>Student ID: <span id="display_stud_id"></span></p>
+<p>CGPA: <span id="display_cgpa"></span></p>
+<p>Programme: <span id="display_prog"></span></p>
+
+</body>
+
+</html>

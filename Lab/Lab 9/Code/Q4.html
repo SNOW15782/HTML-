@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>JS</title>
+
+<script type="text/javascript">
+
+function convert()
+{
+//Get the Ringgit Malaysia value fro mthe range input
+var ringgit = document.getElementById("ringgit").value;	
+
+//convert Ringgit Malaysia to other currencies 
+
+var usd = ringgit / 3.90;
+var aus = ringgit / 2.90;
+var sg = ringgit / 2.60;	
+
+//Display the converted values at specific location 
+
+document.getElementById("rm").innerHTML = ringgit;
+document.getElementById("usd").innerHTML = usd.toFixed(2);
+document.getElementById("aus").innerHTML = aus.toFixed(2);
+document.getElementById("sg").innerHTML = sg.toFixed(2);
+}
+	
+</script>
+
+</head>
+
+<body>
+
+<form name="convertfrm">
+<p>Malaysian Ringgit (RM) : <input type="range" id="ringgit" min="0" max="1000" onchange="convert();" /></p>
+</form>
+
+<p>Malaysian Ringgit  : RM <span id="rm"></span> </p>
+<p>American Dollar    : $ <span id="usd"></span> </p>
+<p>Australian Dollar  : $ <span id="aus"></span> </p>
+<p>Singapore Dollar   : $ <span id="sg"></span></p>
+
+</body>
+
+</html>
