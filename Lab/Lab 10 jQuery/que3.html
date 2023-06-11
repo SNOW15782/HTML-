@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+<p>don't change this paragraph</p>
+<div id="main">
+<p>don't change this paragraph</p>
+<p>don't change this paragraph</p>
+<p>Change this last paragraph</p>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#main p:last-child").css({
+            "font-size": "36px",
+            "color": "red"
+        });
+    });
+</script>
+
+</body>
+
+</html>
