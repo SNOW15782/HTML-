@@ -1,70 +1,85 @@
 <html>
+<head>
+	<title>Lab 8</title>
 
-<head><title>Lab 8</title>
+	<script type="text/javascript">
+		// Function to process input and calculate the bill
+		function input() {
+			// Retrieve customer name from the input field
+			var customerName = document.bill.receiver.value;
 
-<script type="text/javascript">
-    function input() {
-       var customerName = document.bill.receiver.value;
-      var message = document.bill.message.value;
-      var isPeakHour;
-	  if(document.bill.hour.value === "Yes"){
-		isPeakHour = document.bill.hour.value;
-	  };
+			// Retrieve message from the textarea
+			var message = document.bill.message.value;
 
-      var rate = get_rate(isPeakHour);
-      var payment = rate * (Math.ceil(message.length / 10));
+			// Retrieve the peak hour radio button value
+			var isPeakHour;
+			if (document.bill.hour.value === "Yes") {
+				isPeakHour = document.bill.hour.value;
+			}
 
-      display_bill(customerName, message, isPeakHour, rate, payment);
-	}
+			// Calculate the rate based on the peak hour status
+			var rate = get_rate(isPeakHour);
 
-function get_rate (peak_hour){
-	var rate;
-	switch (peak_hour){
-		case "Yes": 
-			rate = 0.03;
-			break; 
+			// Calculate the payment based on the message length
+			var payment = rate * (Math.ceil(message.length / 10));
 
-		case "No": 
-			rate = 0.01; 
-			break; 
-	}
-	return rate; 
-	
-}
+			// Display the bill details
+			display_bill(customerName, message, isPeakHour, rate, payment);
+		}
 
-function display_bill(customerName, message, isPeakHour, rate, payment) {
-      
-	document.write("<p>To: " + customerName + "</p>");
-    document.write("<p>Your Message: " + message + "</p>");
-    document.write("<p>Peak Hour: " + isPeakHour + "</p>");
-    document.write("<p>Rate: RM " + rate.toFixed(2) + "</p>");
-    document.write("<p>Total: RM " + payment.toFixed(2) + "</p>");
-}
-</script>
+		// Function to get the rate based on the peak hour status
+		function get_rate(peak_hour) {
+			var rate;
 
+			// Use a switch statement to assign the rate based on the peak_hour value
+			switch (peak_hour) {
+				case "Yes":
+					rate = 0.03;
+					break;
+
+				case "No":
+					rate = 0.01;
+					break;
+			}
+
+			return rate;
+		}
+
+		// Function to display the bill details
+		function display_bill(customerName, message, isPeakHour, rate, payment) {
+
+			// Display the customer name
+			document.write("<p>To: " + customerName + "</p>");
+
+			// Display the message
+			document.write("<p>Your Message: " + message + "</p>");
+
+			// Display the peak hour status
+			document.write("<p>Peak Hour: " + isPeakHour + "</p>");
+
+			// Display the rate
+			document.write("<p>Rate: RM " + rate.toFixed(2) + "</p>");
+
+			// Display the total payment
+			document.write("<p>Total: RM " + payment.toFixed(2) + "</p>");
+		}
+	</script>
 </head>
 
 <body>
+	<form name="bill">
+		<p>To: <input type="text" name="receiver" /></p>
 
+		<p>Message:<br>
+			<textarea name="message" rows="3" cols="50"></textarea>
+		</p>
 
-<form name="bill">
+		<p>Peak Hour:
+			<input type="radio" name="hour" value="Yes" /> Yes
+			<input type="radio" name="hour" value="No" /> No
+		</p>
 
-<p>To : <input type="text" name="receiver" /></p>
-
-<p>Message :
-<br> <textarea name="message" rows="3" cols="50"></textarea></p>
-
-<p>Peak Hour : 
-	<input type="radio" name="hour" value="Yes" /> Yes
-	<input type="radio" name="hour" value="No" /> No
-</p>
-
-<p><input type="button" name="submitbtn" value="Get Bill" onclick="input()" /></p>
-
-
-</form>
-
-
+		<p><input type="button" name="submitbtn" value="Get Bill" onclick="input()" /></p>
+	</form>
 </body>
-
 </html>
