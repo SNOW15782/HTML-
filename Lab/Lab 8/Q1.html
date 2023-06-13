@@ -1,48 +1,55 @@
 <!DOCTYPE html>
 <html>
-<head><title>Lab 8</title>
+<head>
+	<title>Lab 8</title>
 
-<script>
-function get_input()
-{
-	var grams = parseFloat(document.convertfrm.gramtxt.value);
-	var unit = document.convertfrm.unittxt.value
-	
-	if (unit === "A"){
-		convert_kilogram(grams);
-	}
-	else if (unit === "B"){
-		convert_pound(grams);
-	}
-}
-function convert_kilogram(grams)
-{
-	var kilogram = grams * 0.001
-	document.getElementById("result").innerText = grams + "grams = " + kilogram + "kilograms";
-}
-function convert_pound(grams)
-{
-	var pounds = grams * 0.0022;
-	document.getElementById("result").innerText = grams + "grams = "+ pounds + "pounds";
-}
+	<script>
+		// Function to retrieve user input and call appropriate conversion function
+		function get_input()
+		{
+			// Retrieve the value entered in the text input field
+			var grams = parseFloat(document.convertfrm.gramtxt.value);
+			
+			// Retrieve the selected unit from the dropdown menu
+			var unit = document.convertfrm.unittxt.value;
+			
+			// Check the selected unit and call the corresponding conversion function
+			if (unit === "A"){
+				convert_kilogram(grams);
+			}
+			else if (unit === "B"){
+				convert_pound(grams);
+			}
+		}
 
-</script>
+		// Function to convert grams to kilograms
+		function convert_kilogram(grams)
+		{
+			var kilogram = grams * 0.001; // Perform the conversion calculation
+			document.getElementById("result").innerText = grams + " grams = " + kilogram + " kilograms"; // Display the result
+		}
 
+		// Function to convert grams to pounds
+		function convert_pound(grams)
+		{
+			var pounds = grams * 0.0022; // Perform the conversion calculation
+			document.getElementById("result").innerText = grams + " grams = " + pounds + " pounds"; // Display the result
+		}
+
+	</script>
 </head>
 
 <body>
-
-<form name="convertfrm">
-	<p>Enter a value in grams : <input type="text" name="gramtxt" />
-	<p>Convert to :
-		<select name="unittxt">
-			<option value="A">Kilogram</option>
-			<option value="B">Pound</option>
-		</select>
-	</p>
-	<p><input type="button" name="convertbtn" value="Convert Now" onclick="get_input();" />
-</form>
-<p id="result"></p>
+	<form name="convertfrm">
+		<p>Enter a value in grams : <input type="text" name="gramtxt" /></p>
+		<p>Convert to :
+			<select name="unittxt">
+				<option value="A">Kilogram</option>
+				<option value="B">Pound</option>
+			</select>
+		</p>
+		<p><input type="button" name="convertbtn" value="Convert Now" onclick="get_input();" /></p>
+	</form>
+	<p id="result"></p> <!-- Result will be displayed here -->
 </body>
-
 </html>
