@@ -1,8 +1,9 @@
 <html>
 <head>
   <title>Flower Rose Lily Tulip</title>
+
   <script type="text/javascript">
-    // Function to get the flower price
+    // Function to get the price of a flower
     function get_flower_price(flower) {
       switch (flower) {
         case "Rose":
@@ -16,7 +17,7 @@
       }
     }
 
-    // Function to get the decoration price
+    // Function to get the price of a decoration
     function get_deco_price(decoration) {
       if (decoration === "Basket") {
         return 10.00;
@@ -29,21 +30,25 @@
 
     // Function to handle button click event and display the bill
     function get_data() {
-      // Get form inputs
+      // Get the selected flower from the radio buttons
       var flower = document.querySelector('input[name="flower"]:checked').value;
+
+      // Get the quantity of stalks from the input field
       var quantity = parseInt(document.getElementsByName("qty")[0].value);
+
+      // Get the selected decoration from the dropdown menu
       var decoration = document.getElementsByName("deco")[0].value;
 
-      // Get flower price
+      // Get the price of the flower
       var flowerPrice = get_flower_price(flower);
 
-      // Get decoration price
+      // Get the price of the decoration
       var decorationPrice = get_deco_price(decoration);
 
-      // Calculate total price
+      // Calculate the total price
       var totalPrice = (flowerPrice * quantity) + decorationPrice;
 
-      // Display bill information on the browser
+      // Display the bill information on the browser
       document.getElementById("bill").innerHTML = "Flower: " + flower +
         "<br>Quantity: " + quantity +
         "<br>Decoration: " + decoration +
