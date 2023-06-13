@@ -1,83 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head><title>Lab 8</title>
+<head>
+	<title>Lab 8</title>
 
-<script type="text/javascript">
-function order_data()
-{
-	var cust_name = document.orderfrm.nametxt.value;
-      var mug_color = document.querySelector('input[name="mug_colour"]:checked').value;
-      var quantity = parseInt(document.orderfrm.qtytxt.value);
-      var mug_delivery = document.orderfrm.mug_delivery.checked;
+	<script type="text/javascript">
+		// Function to process and calculate the order details
+		function order_data()
+		{
+			// Retrieve customer name from the input field
+			var cust_name = document.orderfrm.nametxt.value;
+			
+			// Retrieve the selected mug color from the radio buttons
+			var mug_color = document.querySelector('input[name="mug_colour"]:checked').value;
+			
+			// Retrieve the quantity from the input field and convert it to an integer
+			var quantity = parseInt(document.orderfrm.qtytxt.value);
+			
+			// Retrieve the delivery option checkbox status
+			var mug_delivery = document.orderfrm.mug_delivery.checked;
+			
+			// Calculate the mug price based on the selected color
+			var mug_price = get_price(mug_color);
+			
+			// Calculate the delivery rate based on the mug_delivery checkbox status
+			var mug_deli_rate = mug_delivery ? 7.0 : 0.0;
+			
+			// Calculate the total cost
+			var total = (mug_price * quantity) + mug_deli_rate;
+			
+			// Print the order details
+			print_bill(cust_name, mug_price, quantity, mug_delivery, mug_deli_rate, total);
+		}
 
-      var mug_price = get_price(mug_color);
-      var mug_deli_rate = mug_delivery ? 7.0 : 0.0;
-      var total = (mug_price * quantity) + mug_deli_rate;
+		// Function to get the price based on the selected mug color
+		function get_price(mug_color)
+		{
+			var price; 
+			
+			// Use a switch statement to assign the price based on the selected color
+			switch(mug_color)
+			{
+				case "1": // Royal Blue
+					price = 3.50;
+					break;
 
-      print_bill(cust_name, mug_price, quantity, mug_delivery, mug_deli_rate, total);
+				case "2": // Red and Orange
+					price = 5.90;
+					break;
 
+				case "3": // Gold
+					price = 7.50;
+					break;
 
-}
+				default:
+					price = 0.00; 
+			}
 
-function get_price(mug_color)
-{
-	var price; 
-	switch(mug_color)
-	{
-		case "Royal Blue":
-			price = 3.50;
-			break; 
+			return price;
+		}
 
-		case "Red and Orange":
-			price = 5.90;
-			break;
-
-		case "Gold":
-			price = 7.50;
-			break;
-
-		default:
-			price = 0.00; 
-	}
-
-	return price;
-}
-
-function print_bill(cust_name,mug_price,quantity,mug_delivery,mug_deli_rate,total)
-{
-	document.write("<h2>Customer Name: " + cust_name + "</h2>");
-	document.write("<p>Mug Price: RM " + mug_price + "<p>");
-	document.write("<p>Quantity: " + quantity + "<p>");
-	document.write("<p>Delivery: "+mug_delivery ? "Required" : "Not Required" + "<p>");
-	document.write("Total: " + total.toFixed(2) + "<p>");
-}
-</script>
-
+		// Function to print the bill with order details
+		function print_bill(cust_name, mug_price, quantity, mug_delivery, mug_deli_rate, total)
+		{
+			// Display the customer name
+			document.write("<h2>Customer Name: " + cust_name + "</h2>");
+			
+			// Display the mug price
+			document.write("<p>Mug Price: RM " + mug_price + "</p>");
+			
+			// Display the quantity
+			document.write("<p>Quantity: " + quantity + "</p>");
+			
+			// Display the delivery status
+			document.write("<p>Delivery: " + (mug_delivery ? "Required" : "Not Required") + "</p>");
+			
+			// Display the total cost with fixed decimal places
+			document.write("Total: " + total.toFixed(2) + "</p>");
+		}
+	</script>
 </head>
 
 <body>
+	<h3>Custom Mug</h3>
+	<p>Make a custom order today!</p>
 
-<h3>Custom Mug</h3>
-<p>Make a custom order today!</p>
-
-<form name="orderfrm">
-
-	<p>Name : <input type="text" name="nametxt" >
-
-	<p>Colour
-	<input type="radio" name="mug_colour" value="1">Royal Blue (RM 3.50)
-	<input type="radio" name="mug_colour" value="2">Red and Orange (RM 5.90)
-	<input type="radio" name="mug_colour" value="3">Gold (RM 7.50)
-
-	<p>Quantity : <input type="text" name="qtytxt" >	
-	
-	<p>Delivery : <input type="checkbox" name="mug_delivery" value="Yes">Check if delivery is required
-
-	<p><input type="button" name="sendbtn" value="Send Order" onclick="order_data();" />
-
-</form>
-
-
+	<form name="orderfrm">
+		<p>Name: <input type="text" name="nametxt"></p>
+		
+		<p>Colour:
+			<input type="radio" name="mug_colour" value="1">Royal Blue (RM 3.50)
+			<input type="radio" name="mug_colour" value="2">Red and Orange (RM 5.90)
+			<input type="radio" name="mug_colour" value="3">Gold (RM 7.50)
+		</p>
+		
+		<p>Quantity: <input type="text" name="qtytxt"></p>
+		
+		<p>Delivery: <input type="checkbox" name="mug_delivery" value="Yes">Check if delivery is required</p>
+		
+		<p><input type="button" name="sendbtn" value="Send Order" onclick="order_data();"></p>
+	</form>
 </body>
-
 </html>
