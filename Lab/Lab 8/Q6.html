@@ -3,7 +3,9 @@
 <head>
   <title>Lab 8</title>
   <script type="text/javascript">
+    // Function to process the input and display the ticket information
     function input() {
+      // Get the selected movie code, adult quantity, and child quantity
       var movieCode = document.ticketfrm.mov_code.value;
       var adultQty = parseInt(document.ticketfrm.adult_qty.value);
       var childQty = parseInt(document.ticketfrm.child_qty.value);
@@ -11,6 +13,7 @@
       var movieName;
       var ticketPrice;
 
+      // Determine the movie name and ticket price based on the selected movie code
       switch (movieCode) {
         case "M1":
           movieName = "Jumanji";
@@ -34,6 +37,7 @@
           break;
       }
 
+      // Get the selected add-ons
       var addOns = [];
       var addOnCodes = document.getElementsByName("add_on_code");
       for (var i = 0; i < addOnCodes.length; i++) {
@@ -42,10 +46,12 @@
         }
       }
 
+      // Prepare arrays to store add-on names and prices
       var addOnNames = [];
       var addOnPrices = [];
       var totalAddOnPrice = 0.0;
 
+      // Calculate the total add-on price and populate the add-on names and prices arrays
       for (var j = 0; j < addOns.length; j++) {
         if (addOns[j] === "A1") {
           addOnNames.push("Popcorn");
@@ -62,17 +68,21 @@
         }
       }
 
+      // Calculate the total payment
       var totalPayment = (adultQty * ticketPrice) + (childQty * ticketPrice) + totalAddOnPrice;
 
+      // Display the ticket information on the browser
       displayInformation(movieName, adultQty, childQty, addOnNames, addOnPrices, totalPayment);
     }
 
+    // Function to display the ticket information
     function displayInformation(movieName, adultQty, childQty, addOnNames, addOnPrices, totalPayment) {
       document.write("<h3>Ticket and Add-On Purchase</h3>");
       document.write("<p>Movie: " + movieName + "</p>");
       document.write("<p>Adult Total: " + adultQty + "</p>");
       document.write("<p>Child Total: " + childQty + "</p>");
 
+      // Display the add-ons if there are any
       if (addOnNames.length > 0) {
         document.write("<p>Add-Ons:</p>");
         document.write("<ul>");
@@ -82,6 +92,7 @@
         document.write("</ul>");
       }
 
+      // Display the total payment
       document.write("<p>Total Payment: RM " + totalPayment.toFixed(2) + "</p>");
     }
   </script>
@@ -92,6 +103,7 @@
   <p>Choose your movie and add-on</p>
 
   <form name="ticketfrm">
+    <!-- Select the movie title -->
     <p>Movie Title:
       <select name="mov_code">
         <option value="M1">Jumanji (RM 12.90)</option>
@@ -100,13 +112,17 @@
         <option value="M4">The Foreigner (RM 12.80)</option>
       </select>
     </p>
+    <!-- Input for the adult quantity -->
     <p>Adult: <input type="number" name="adult_qty" min="1" max="10" /></p>
+    <!-- Input for the child quantity -->
     <p>Child: <input type="number" name="child_qty" min="0" max="10" /></p>
+    <!-- Checkboxes for add-ons -->
     <p>Add-Ons:
       <input type="checkbox" name="add_on_code" value="A1">Popcorn (RM 7.90)
       <input type="checkbox" name="add_on_code" value="A2">Nachos (RM 5.50)
       <input type="checkbox" name="add_on_code" value="A3">Soda (RM 3.50)
     </p>
+    <!-- Button to trigger the input processing -->
     <p><input type="button" name="buybtn" value="Buy Now" onclick="input();" /></p>
   </form>
 </body>
