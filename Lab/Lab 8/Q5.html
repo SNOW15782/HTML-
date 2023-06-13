@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head><title>Lab 8</title>
+<head>
+<title>Lab 8</title>
 
 <script type="text/javascript">
+// Function to calculate and display the multiplication table
 function timetable() {
-var num1 = parseInt(document.forms["multiplicationfrm"]["num1"].value);
-var num2 = parseInt(document.forms["multiplicationfrm"]["num2"].value);
+  // Get the values of num1 and num2 from the form
+  var num1 = parseInt(document.forms["multiplicationfrm"]["num1"].value);
+  var num2 = parseInt(document.forms["multiplicationfrm"]["num2"].value);
 
-var result = num1 *  num2;
+  // Perform the multiplication operation
+  var result = num1 * num2;
 
- alert("The result of "+ num1 + " * "+ num2 + "is: "+ result);
- 
+  // Display the result in an alert box
+  alert("The result of " + num1 + " * " + num2 + " is: " + result);
 }
 </script>
 
@@ -22,14 +26,15 @@ var result = num1 *  num2;
 <p>Choose your numbers</p>
 
 <form name="multiplicationfrm">
+  <!-- Input range for num1 -->
+  <p> <input type="range" min="1" max="12" value="1" name="num1"></p>
+  <!-- Input range for num2 -->
+  <p> <input type="range" min="1" max="12" value="1" name="num2"></p>
 
-	<p> <input type="range" min="1" max="12" value="1" name="num1"></p>
-	<p> <input type="range" min="1" max="12" value="1" name="num2"></p>
-
-	<p><input type="button" name="calcbtn" value="Get Answer" onclick="timetable();" />
+  <!-- Button to trigger the calculation -->
+  <p><input type="button" name="calcbtn" value="Get Answer" onclick="timetable();" />
 
 </form>
-
 
 </body>
 
