@@ -2,21 +2,39 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include the jQuery library by adding a script tag with the source URL -->
 <script> 
 $(document).ready(function(){
+  // When the document is ready, execute a function using jQuery
+
   $("button").click(function(){
-    var div = $("div");  
+    // Attach a click event handler to all button elements
+
+    var div = $("div");
+    // Select the div element
+
     div.animate({
       left: '+=100px',
       fontSize: '3em'
     }, 'slow');
+    // Animate the selected div element:
+    // - Move it 100 pixels to the right by changing the "left" CSS property
+    // - Increase the font size to 3em by changing the "fontSize" CSS property
+    // The animation takes place over a duration of 'slow'
   });
 });
 </script> 
 </head>
 <body>
 <button>Start Animation</button>
+<!-- Display a button element with the text "Start Animation" -->
+
 <p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+<!-- Display a paragraph element with information about manipulating element positions -->
+
 <div style="background:#0000CD;height:100px;width:200px;position:absolute;color:white;">HELLO</div>
+<!-- Display a div element with the background color #0000CD, height of 100px, width of 200px, absolute position, and white text color -->
+<!-- The div contains the text "HELLO" -->
+
 </body>
 </html>
