@@ -2,26 +2,41 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<!-- Include the jQuery library by adding a script tag with the source URL -->
 </head>
 <body>
 
 <p>don't change this paragraph</p>
+<!-- Display a paragraph element with the text "don't change this paragraph" -->
+
 <div id="main">
+<!-- Create a div element with the id "main" -->
+
 <p>don't change this paragraph</p>
+<!-- Display a paragraph element with the text "don't change this paragraph" -->
+
 <p>don't change this paragraph</p>
+<!-- Display a paragraph element with the text "don't change this paragraph" -->
+
 <p>Change this last paragraph</p>
+<!-- Display a paragraph element with the text "Change this last paragraph" -->
+
 </div>
+<!-- Close the div element -->
 
 <script>
     $(document).ready(function(){
+        // When the document is ready, execute a function using jQuery
+
         $("#main p:last-child").css({
             "font-size": "36px",
             "color": "red"
         });
+        // Select the last child paragraph element inside the element with the id "main" and change its CSS properties
+        // Set the "font-size" property to 36 pixels and the "color" property to red
     });
 </script>
+<!-- Add a script tag to execute JavaScript code -->
 
 </body>
-
 </html>
