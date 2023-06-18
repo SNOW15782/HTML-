@@ -2,26 +2,41 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<!-- Include the jQuery library by adding a script tag with the source URL -->
 </head>
 <body>
 
 <p>Don't change this paragraph</p>
+<!-- Display a paragraph element with the text "Don't change this paragraph" -->
+
 <div id="main">
+<!-- Create a div element with the id "main" -->
+
 <p>change this paragraph.</p>
+<!-- Display a paragraph element with the text "change this paragraph." -->
+
 <p>change this paragraph too.</p>
+<!-- Display a paragraph element with the text "change this paragraph too." -->
+
 <p>And change this last paragraph.</p>
+<!-- Display a paragraph element with the text "And change this last paragraph." -->
+
 </div>
+<!-- Close the div element -->
+
 <script>
     $(document).ready(function(){
+        // When the document is ready, execute a function using jQuery
+
         $("#main p").css({
             "font-size": "24px", 
             "color": "red"
         });
+        // Select all paragraph elements inside the element with the id "main" and change their CSS properties
+        // Set the "font-size" property to 24 pixels and the "color" property to red
     });
-
 </script>
+<!-- Add a script tag to execute JavaScript code -->
 
 </body>
-
 </html>
