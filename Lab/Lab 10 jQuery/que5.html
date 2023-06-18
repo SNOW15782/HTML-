@@ -2,30 +2,45 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<!-- Include the jQuery library by adding a script tag with the source URL -->
 </head>
 <body>
 
 <nav>
+<!-- Create a navigation element -->
 <ul>
+<!-- Create an unordered list -->
 <li><a href="#">link one</a></li>
+<!-- Create a list item with a hyperlink with the text "link one" -->
 <li><a href="#">link two</a></li>
+<!-- Create a list item with a hyperlink with the text "link two" -->
 <li><a href="#">link three</a></li>
+<!-- Create a list item with a hyperlink with the text "link three" -->
 <li><a href="#">link four</a></li>
+<!-- Create a list item with a hyperlink with the text "link four" -->
 <li><a href="#">link five</a></li>
+<!-- Create a list item with a hyperlink with the text "link five" -->
 </ul>
+<!-- Close the unordered list -->
 </nav>
-<p>Here is a paragraph with a <a href="http://google.com">link to google</a> in
-it</p>
+
+<p>Here is a paragraph with a <a href="http://google.com">link to google</a> in it</p>
+<!-- Display a paragraph element with the text "Here is a paragraph with a link to google in it" -->
+<!-- The text "link to google" is a hyperlink pointing to "http://google.com" -->
 
 <script>
     $(document).ready(function(){
+      // When the document is ready, execute a function using jQuery
+
       $("nav a").click(function(){
+        // Attach a click event handler to all anchor elements within the navigation element
+
         alert("clicked!");
+        // Display an alert dialog with the message "clicked!" when an anchor element is clicked
       });
     });
-    </script>
+</script>
+<!-- Add a script tag to execute JavaScript code -->
 
 </body>
-
 </html>
