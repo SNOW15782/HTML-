@@ -2,34 +2,65 @@
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<!-- Include the jQuery library by adding a script tag with the source URL -->
 </head>
 <body>
 
 <p>don't change this paragraph</p>
-<div id="main">
-<p>Here is paragraph one</p>
-<p>Here is paragraph two</p>
-<p>Here is paragraph three</p>
-<p>Here is paragraph four</p>
-<p>Here is paragraph five</p>
-<p>Llamas and Chickens!</p>
-<p>Here is paragraph seven</p>
-<p>Here is paragraph eight</p>
-<p>Here is paragraph nine</p>
-<p>Here is paragraph ten</p>
-<p>Here is paragraph eleven</p>
-<p>Here is paragraph twelve</p>
-</div>
+<!-- Display a paragraph element with the text "don't change this paragraph" -->
 
+<div id="main">
+<!-- Create a div element with the id "main" -->
+
+<p>Here is paragraph one</p>
+<!-- Display a paragraph element with the text "Here is paragraph one" -->
+
+<p>Here is paragraph two</p>
+<!-- Display a paragraph element with the text "Here is paragraph two" -->
+
+<p>Here is paragraph three</p>
+<!-- Display a paragraph element with the text "Here is paragraph three" -->
+
+<p>Here is paragraph four</p>
+<!-- Display a paragraph element with the text "Here is paragraph four" -->
+
+<p>Here is paragraph five</p>
+<!-- Display a paragraph element with the text "Here is paragraph five" -->
+
+<p>Llamas and Chickens!</p>
+<!-- Display a paragraph element with the text "Llamas and Chickens!" -->
+
+<p>Here is paragraph seven</p>
+<!-- Display a paragraph element with the text "Here is paragraph seven" -->
+
+<p>Here is paragraph eight</p>
+<!-- Display a paragraph element with the text "Here is paragraph eight" -->
+
+<p>Here is paragraph nine</p>
+<!-- Display a paragraph element with the text "Here is paragraph nine" -->
+
+<p>Here is paragraph ten</p>
+<!-- Display a paragraph element with the text "Here is paragraph ten" -->
+
+<p>Here is paragraph eleven</p>
+<!-- Display a paragraph element with the text "Here is paragraph eleven" -->
+
+<p>Here is paragraph twelve</p>
+<!-- Display a paragraph element with the text "Here is paragraph twelve" -->
+
+</div>
+<!-- Close the div element -->
 
 <script>
     $(document).ready(function(){
-        $("#main p:contains('Llamas and Chickens!')").css("color", "red");
-    });
+        // When the document is ready, execute a function using jQuery
 
+        $("#main p:contains('Llamas and Chickens!')").css("color", "red");
+        // Select the paragraph element inside the element with the id "main" that contains the text "Llamas and Chickens!"
+        // Change its CSS property "color" to red
+    });
 </script>
+<!-- Add a script tag to execute JavaScript code -->
 
 </body>
-
 </html>
